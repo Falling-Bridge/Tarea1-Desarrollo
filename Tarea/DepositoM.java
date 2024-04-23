@@ -21,6 +21,5 @@ class DepositoM {
 
     public DepositoM() {
         lista2 = new ArrayList<Moneda>();
-
     }
 }

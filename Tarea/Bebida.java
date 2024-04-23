@@ -43,5 +43,3 @@ class Pepsi extends Bebida {
         return new String("pepsi");
     }
 }
-
-

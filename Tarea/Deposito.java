@@ -21,6 +21,5 @@ class Deposito {
 
     public Deposito() {
         lista1 = new ArrayList<Bebida>();
-
     }
 }
