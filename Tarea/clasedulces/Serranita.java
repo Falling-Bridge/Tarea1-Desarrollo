@@ -1,6 +1,6 @@
 package Tarea.clasedulces;
 
-class Serranita extends Dulces{
+public class Serranita extends Dulces{
     public Serranita(int ac) {
         super(ac);
     }

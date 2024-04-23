@@ -1,6 +1,6 @@
 package Tarea.clasebebida;
 
-class Sprite extends Bebida {
+public class Sprite extends Bebida {
     public Sprite(int ab) {
         super(ab);
     }
