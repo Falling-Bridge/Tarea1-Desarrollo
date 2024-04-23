@@ -1,4 +1,6 @@
 package Tarea;
+import Tarea.clasemoneda.*;
+import Tarea.clasebebida.*;
 
 class Comprador {
     private String sonido;

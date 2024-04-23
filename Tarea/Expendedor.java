@@ -1,12 +1,15 @@
 package Tarea;
+import Tarea.clasemoneda.*;
+import Tarea.clasebebida.*;
+import Tarea.clasedulces.*;
 
 class Expendedor {
-    private Deposito coca;
-    private Deposito sprite;
-    private Deposito pepsi;
-    private Deposito serranita;
-    private Deposito calugas;
-    private Deposito oreos;
+    private Deposito<Bebida> coca;
+    private Deposito<Bebida> sprite;
+    private Deposito<Bebida> pepsi;
+    private Deposito<Dulces> serranita;
+    private Deposito<Dulces> calugas;
+    private Deposito<Dulces> oreos;
     private DepositoM monVu;
     private int price;
     public static final int COCA = 1;
