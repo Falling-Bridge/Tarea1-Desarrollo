@@ -1,4 +1,4 @@
-package Java.Tareadesarrollo;
+package Tarea1-Desarrollo;
 
 class Sprite extends Bebida {
     public Sprite(int ab) {
