@@ -7,6 +7,6 @@ public class Oreos extends Dulces{
     }
 
     public String Consumir() {
-        return (super.Consumir() + "oreos");
+        return (super.Consumir() + "oreo");
     }
 }

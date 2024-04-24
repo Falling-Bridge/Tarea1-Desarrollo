@@ -3,7 +3,7 @@ import Tarea.clasemoneda.*;
 
 public class Main {
     public static void main(String[] args) {
-        Expendedor exp = new Expendedor(2, 1000);
+        Expendedor exp = new Expendedor(3, 500);
         Moneda m = null;
         Comprador c = null;
 
@@ -14,7 +14,7 @@ public class Main {
         c = new Comprador(m, 1, exp);
         System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
         m = new Moneda500();
-        c = new Comprador(m, 662, exp);
+        c = new Comprador(m, 6, exp);
         System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
     }
 }
