@@ -1,6 +1,6 @@
 package Tarea;
-
 import Tarea.clasemoneda.*;
+import Tarea.mensajeserror.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +10,20 @@ public class Main {
 
         m = new Moneda1500();
         c = new Comprador(m, 1, exp);
-        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+        try{
+            System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+        }
+        catch (NoHayProductoException){
+
+        }
+        catch(PagoIncorrectoException){
+
+        }
+        catch(PagoInsuficienteException){
+
+        }
+
+
         m = new Moneda1500();
         c = new Comprador(m, 1, exp);
         System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());

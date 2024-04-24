@@ -32,7 +32,7 @@ class Expendedor {
         }
         Bebida auxBebida = null;
         switch (cual) {
-            case 1: 
+            case 1: //coca
                 auxBebida = coca.getElemento();
                 if(auxBebida == null){
                     for(int i = price; i<m.getValor(); i+=100){
@@ -41,7 +41,7 @@ class Expendedor {
                     monVu.addElemento(m);
                 }
                 return auxBebida;
-            case 2: 
+            case 2: //sprite
                 auxBebida = sprite.getElemento();
                 if(auxBebida == null){
                     for(int i = price; i<m.getValor(); i+=100){
@@ -50,7 +50,7 @@ class Expendedor {
                     monVu.addElemento(m);
                 }
                 return auxBebida;
-            case 3: 
+            case 3: //pepsi
                 auxBebida = pepsi.getElemento();
                 if(auxBebida == null){
                     for(int i = price; i<m.getValor(); i+=100){
@@ -79,7 +79,7 @@ class Expendedor {
         }
         Dulces auxDulces = null;
         switch (cual) {
-            case 4: 
+            case 4: //serranita
                 auxDulces = serranita.getElemento();
                 if(auxDulces == null){
                     for(int i = price; i<m.getValor(); i+=100){
@@ -89,7 +89,7 @@ class Expendedor {
                 }
                 return auxDulces;
 
-            case 5: 
+            case 5: //calugas
                 auxDulces = calugas.getElemento();
                 if(auxDulces == null){
                     for(int i = price; i<m.getValor(); i+=100){
@@ -99,7 +99,7 @@ class Expendedor {
                 }
                 return auxDulces;
             
-            case 6: 
+            case 6: //oreos
                 auxDulces = oreos.getElemento();
                 if(auxDulces == null){
                     for(int i = price; i<m.getValor(); i+=100){
