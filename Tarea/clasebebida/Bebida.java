@@ -1,15 +1,12 @@
 package Tarea.clasebebida;
+import Tarea.Producto;
 
-public abstract class Bebida {
-    private int serie;
-
-    public int getSerie() { 
-        return serie;
+public abstract class Bebida extends Producto{
+    public String Consumir(){
+        return "Bebe una ";
     }
 
-    public abstract String beber();
-
     public Bebida(int a) {
-        serie = a;
+        super(a);
     }
 }

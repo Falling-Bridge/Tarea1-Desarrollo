@@ -1,6 +1,5 @@
 package Tarea;
 import Tarea.clasemoneda.*;
-import Tarea.clasebebida.*;
 
 class Comprador {
     private String sonido;
@@ -15,9 +14,9 @@ class Comprador {
     }
 
     public Comprador(Moneda m, int cual, Expendedor exp) {
-        Bebida beer = exp.comprarBebida(m, cual);
+        Producto beer = exp.comprarProducto(m, cual);
         if (beer != null) {
-            sonido = beer.beber();
+            sonido = beer.Consumir();
 
         }
         Moneda aux = exp.getVuelto();

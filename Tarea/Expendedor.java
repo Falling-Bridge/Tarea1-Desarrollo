@@ -17,12 +17,12 @@ class Expendedor {
         return monVu.getElemento();
     }
 
-    public Bebida comprarBebida(Moneda m, int cual) {
+    public Producto comprarProducto(Moneda m, int cual) {
         if(m == null){
             return null;
         }
 
-        if(m.getValor()<price || (cual != 1 && cual != 2 && cual != 3)){
+        if(m.getValor()<price || (cual != 1 && cual != 2 && cual != 3 && cual != 4 && cual != 5 && cual != 6)){
             monVu.addElemento(m);
             return null;
         }
@@ -31,6 +31,8 @@ class Expendedor {
             monVu.addElemento(new Moneda100());
         }
         Bebida auxBebida = null;
+        Dulces auxDulces = null;
+
         switch (cual) {
             case 1: 
                 auxBebida = coca.getElemento();
@@ -59,26 +61,7 @@ class Expendedor {
                     monVu.addElemento(m);
                 }
                 return auxBebida;
-            
-            default: return null;    
-        }
-    }
-
-    public Dulces comprarDulces(Moneda m, int cual) {
-        if(m == null){
-            return null;
-        }
-
-        if(m.getValor()<price || (cual != 4 && cual != 5 && cual != 6)){
-            monVu.addElemento(m);
-            return null;
-        }
-        
-        for(int i = price; i<m.getValor(); i+=100){
-            monVu.addElemento(new Moneda100());
-        }
-        Dulces auxDulces = null;
-        switch (cual) {
+                
             case 4: 
                 auxDulces = serranita.getElemento();
                 if(auxDulces == null){

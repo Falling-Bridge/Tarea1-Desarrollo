@@ -1,15 +1,12 @@
 package Tarea.clasedulces;
+import Tarea.Producto;
 
-public abstract class Dulces {
-    private int serie;
-
-    public int getSerie() { 
-        return serie;
+public abstract class Dulces extends Producto {
+    public String Consumir(){
+        return "Come una ";
     }
 
-    public abstract String dulces();
-
     public Dulces(int a) {
-        serie = a;
+        super(a);
     }
 }

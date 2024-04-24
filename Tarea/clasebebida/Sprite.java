@@ -5,7 +5,7 @@ public class Sprite extends Bebida {
         super(ab);
     }
 
-    public String beber() {
-        return new String("sprite");
+    public String Consumir() {
+        return (super.Consumir() + "sprite");
     }
 }
