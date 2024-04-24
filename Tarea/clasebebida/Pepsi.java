@@ -5,7 +5,7 @@ public class Pepsi extends Bebida {
         super(ap);
     }
 
-    public String beber() {
-        return new String("pepsi");
+    public String dulces() {
+        return new String(super.Consumir() + "pepsi");
     }
 }
