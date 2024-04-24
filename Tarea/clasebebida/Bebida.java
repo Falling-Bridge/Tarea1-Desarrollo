@@ -1,5 +1,4 @@
 package Tarea.clasebebida;
-
 import Tarea.Producto;
 
 public abstract class Bebida extends Producto{

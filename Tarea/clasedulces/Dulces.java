@@ -1,5 +1,4 @@
 package Tarea.clasedulces;
-
 import Tarea.Producto;
 
 public abstract class Dulces extends Producto {
