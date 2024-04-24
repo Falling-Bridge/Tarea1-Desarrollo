@@ -6,7 +6,7 @@ public class Oreos extends Dulces{
         super(ac);
     }
 
-    public String dulces() {
-        return new String(super.Consumir() + "oreos");
+    public String Consumir() {
+        return (super.Consumir() + "oreos");
     }
 }

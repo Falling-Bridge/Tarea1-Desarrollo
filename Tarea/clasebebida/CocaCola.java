@@ -5,7 +5,7 @@ public class CocaCola extends Bebida {
         super(ac);
     }
 
-    public String beber() {
-        return new String(super.Consumir() + "cocacola");
+    public String Consumir() {
+        return (super.Consumir() + "cocacola");
     }
 }

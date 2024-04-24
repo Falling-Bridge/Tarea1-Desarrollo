@@ -6,7 +6,7 @@ public class Serranita extends Dulces{
         super(ac);
     }
 
-    public String dulces() {
-        return new String(super.Consumir() + "serranita");
+    public String Consumir() {
+        return (super.Consumir() + "serranita");
     }
 }
