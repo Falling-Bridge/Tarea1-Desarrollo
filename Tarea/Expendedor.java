@@ -1,5 +1,6 @@
 package Tarea;
 import Tarea.clasemoneda.*;
+import Tarea.mensajeerror.*;
 import Tarea.clasebebida.*;
 import Tarea.clasedulces.*;
 
@@ -19,12 +20,12 @@ class Expendedor {
 
     public Producto comprarProducto(Moneda m, int cual) {
         if(m == null){
-            return null;
+            throw new PagoIncorrectoException();
         }
 
         if(m.getValor()<price || (cual != 1 && cual != 2 && cual != 3 && cual != 4 && cual != 5 && cual != 6)){
             monVu.addElemento(m);
-            return null;
+            throw new PagoInsuficienteException();
         }
         
         for(int i = price; i<m.getValor(); i+=100){
@@ -35,14 +36,15 @@ class Expendedor {
 
         switch (cual) {
             case 1: 
-                auxBebida = coca.getElemento();
-                if(auxBebida == null){
-                    for(int i = price; i<m.getValor(); i+=100){
-                        monVu.getElemento();
+                if (coca.getElemento() == null){
+                    for (int i = price; i < m.getValor(); i += 100){
+                        monVu.addElemento(m);
                     }
                     monVu.addElemento(m);
+                    throw new NoHayProductoException();
                 }
-                return auxBebida;
+                return coca.getElemento();
+
             case 2: 
                 auxBebida = sprite.getElemento();
                 if(auxBebida == null){

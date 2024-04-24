@@ -17,7 +17,6 @@ class Comprador {
         Producto beer = exp.comprarProducto(m, cual);
         if (beer != null) {
             sonido = beer.Consumir();
-
         }
         Moneda aux = exp.getVuelto();
         while (aux != null) {
