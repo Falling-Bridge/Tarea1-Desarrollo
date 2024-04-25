@@ -1,5 +1,6 @@
 package Tarea;
 import Tarea.clasemoneda.*;
+import Tarea.mensajeerror.*;
 import Tarea.clasebebida.*;
 import Tarea.clasedulces.*;
 
@@ -11,81 +12,81 @@ class Expendedor {
     private Deposito<Dulces> calugas;
     private Deposito<Dulces> oreos;
     private Deposito<Moneda> monVu;
-    private int price;
 
-    public Moneda getVuelto() {
+    public Moneda getVuelto() throws Exception{
         return monVu.getElemento();
     }
 
-    public Producto comprarProducto(Moneda m, int cual) {
+    public Producto comprarProducto(Moneda m, Valoresestaticos producto) throws Exception{
         if(m == null){
-            return null;
+            throw new PagoIncorrectoException();
         }
 
-        if(m.getValor()<price || (cual != 1 && cual != 2 && cual != 3 && cual != 4 && cual != 5 && cual != 6)){
+        if( m.getValor() < producto.getCoste()){
             monVu.addElemento(m);
-            return null;
+            throw new PagoInsuficienteException();
         }
         
-        for(int i = price; i<m.getValor(); i+=100){
+        for(int i = producto.getCoste(); i<m.getValor(); i+=100){
             monVu.addElemento(new Moneda100());
         }
         Bebida auxBebida = null;
         Dulces auxDulces = null;
 
-        switch (cual) {
-            case 1: 
-                auxBebida = coca.getElemento();
-                if(auxBebida == null){
-                    for(int i = price; i<m.getValor(); i+=100){
-                        monVu.getElemento();
+        switch (producto) {
+            case COCA: 
+                if (coca.getElemento() == null){
+                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
+                        monVu.addElemento(m);
                     }
                     monVu.addElemento(m);
+                    throw new NoHayProductoException();
                 }
-                return auxBebida;
-            case 2: 
+                return coca.getElemento();
+
+            case SPRITE: 
                 auxBebida = sprite.getElemento();
                 if(auxBebida == null){
-                    for(int i = price; i<m.getValor(); i+=100){
+                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
                 return auxBebida;
-            case 3: 
+            case PEPSI: 
                 auxBebida = pepsi.getElemento();
                 if(auxBebida == null){
-                    for(int i = price; i<m.getValor(); i+=100){
+                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
                 return auxBebida;
                 
-            case 4: 
+            case SERRANITA: 
                 auxDulces = serranita.getElemento();
                 if(auxDulces == null){
-                    for(int i = price; i<m.getValor(); i+=100){
+                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
                 return auxDulces;
 
-            case 5: 
+            case CALUGAS: 
                 auxDulces = calugas.getElemento();
                 if(auxDulces == null){
-                    for(int i = price; i<m.getValor(); i+=100){
+                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
                 return auxDulces;
             
-            case 6: 
+            case OREOS: 
                 auxDulces = oreos.getElemento();
                 if(auxDulces == null){
-                    for(int i = price; i<m.getValor(); i+=100){
+                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
@@ -96,7 +97,7 @@ class Expendedor {
         }
     }
 
-    public Expendedor(int a, int b) {
+    public Expendedor(int a) {
         coca = new Deposito<Bebida>();
         sprite = new Deposito<Bebida>();
         pepsi = new Deposito<Bebida>();
@@ -121,6 +122,5 @@ class Expendedor {
                 oreos.addElemento(ore);
             }
         }
-        price = b;
     }
 }

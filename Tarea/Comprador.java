@@ -1,5 +1,6 @@
 package Tarea;
 import Tarea.clasemoneda.*;
+import Tarea.mensajeerror.*;
 
 class Comprador {
     private String sonido;
@@ -9,15 +10,17 @@ class Comprador {
         return vuelto;
     }
 
-    public String queBebiste() {
+    public String queConsumiste() {
         return sonido;
     }
 
-    public Comprador(Moneda m, int cual, Expendedor exp) {
-        Producto beer = exp.comprarProducto(m, cual);
+    public Comprador(Moneda m, Valoresestaticos producto, Expendedor exp)throws Exception {
+        Producto beer = exp.comprarProducto(m, producto);
+        
         if (beer != null) {
             sonido = beer.Consumir();
-
+        } else {
+            throw new NoHayProductoException();
         }
         Moneda aux = exp.getVuelto();
         while (aux != null) {

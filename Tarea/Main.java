@@ -1,20 +1,20 @@
 package Tarea;
 import Tarea.clasemoneda.*;
+import Tarea.mensajeerror.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Expendedor exp = new Expendedor(3, 500);
+    public static void main(String[] args) throws Exception{
+        Expendedor exp = new Expendedor(3);
         Moneda m = null;
         Comprador c = null;
-
+        Valoresestaticos v = null;
+        v = Valoresestaticos.SERRANITA;
         m = new Moneda1500();
-        c = new Comprador(m, 3, exp);
-        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
-        m = new Moneda1000();
-        c = new Comprador(m, 1, exp);
-        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
-        m = new Moneda500();
-        c = new Comprador(m, 6, exp);
-        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+        try{
+            c = new Comprador(m, v, exp);
+            System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());
+        }catch(NoHayProductoException | PagoIncorrectoException e){
+            System.out.println("holas: 2 "+ e.getMessage());  
+        }
     }
 }
