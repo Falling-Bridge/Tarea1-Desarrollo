@@ -1,6 +1,5 @@
 package Tarea;
 import java.util.ArrayList;
-import Tarea.mensajeerror.*;
 
 class Deposito<T> {
 
@@ -10,14 +9,14 @@ class Deposito<T> {
         lista.add(elemento);
     }
 
-    public T getElemento() throws NoHayProductoException{
+    public T getElemento() {
         if (lista.size() == 0) {
-            throw new NoHayProductoException();
         } else {
             T aux = lista.get(0);
             lista.remove(0);
             return aux;
         }
+        return null;
     }
 
     public Deposito() {

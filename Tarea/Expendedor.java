@@ -7,10 +7,10 @@ import Tarea.clasedulces.*;
 class Expendedor {
     private Deposito<Bebida> coca;
     private Deposito<Bebida> sprite;
-    private Deposito<Bebida> pepsi;
+    private Deposito<Bebida> fanta;
     private Deposito<Dulces> serranita;
-    private Deposito<Dulces> calugas;
-    private Deposito<Dulces> oreos;
+    private Deposito<Dulces> snickers;
+    private Deposito<Dulces> super8;
     private Deposito<Moneda> monVu;
 
     public Moneda getVuelto() throws Exception{
@@ -37,24 +37,22 @@ class Expendedor {
             case COCA: 
                 if (coca.getElemento() == null){
                     for (int i = producto.getCoste(); i < m.getValor(); i += 100){
-                        monVu.addElemento(m);
-                    }
-                    monVu.addElemento(m);
-                    throw new NoHayProductoException();
-                }
-                return coca.getElemento();
-
-            case SPRITE: 
-                auxBebida = sprite.getElemento();
-                if(auxBebida == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
-                return auxBebida;
-            case PEPSI: 
-                auxBebida = pepsi.getElemento();
+                return coca.getElemento();
+
+            case SPRITE: 
+            if (sprite.getElemento() == null){
+                for (int i = producto.getCoste(); i < m.getValor(); i += 100){
+                    monVu.getElemento();
+                }
+                monVu.addElemento(m);
+            }
+            return sprite.getElemento();
+            case FANTA: 
+                auxBebida = fanta.getElemento();
                 if(auxBebida == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
@@ -74,7 +72,7 @@ class Expendedor {
                 return auxDulces;
 
             case CALUGAS: 
-                auxDulces = calugas.getElemento();
+                auxDulces = snickers.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
@@ -84,7 +82,7 @@ class Expendedor {
                 return auxDulces;
             
             case OREOS: 
-                auxDulces = oreos.getElemento();
+                auxDulces = super8.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();
@@ -100,26 +98,26 @@ class Expendedor {
     public Expendedor(int a) {
         coca = new Deposito<Bebida>();
         sprite = new Deposito<Bebida>();
-        pepsi = new Deposito<Bebida>();
+        fanta = new Deposito<Bebida>();
         serranita = new Deposito<Dulces>();
-        calugas = new Deposito<Dulces>();
-        oreos = new Deposito<Dulces>();
+        snickers = new Deposito<Dulces>();
+        super8 = new Deposito<Dulces>();
         monVu = new Deposito<Moneda>();
 
         if (a > 0){
-            for (int i = 0; i < a; i++) {
+            for (int i = 0; i <= a; i++) {
                 Bebida coc = new CocaCola(i);
                 Bebida spi = new Sprite(i);
-                Bebida pep = new Pepsi(i);
+                Bebida fan = new Fanta(i);
                 Dulces ser = new Serranita(i);
-                Dulces cal = new Calugas(i);
-                Dulces ore = new Oreos(i);
+                Dulces cal = new Snickers(i);
+                Dulces sup = new Super8(i);
                 coca.addElemento(coc);
                 sprite.addElemento(spi);
-                pepsi.addElemento(pep);
+                fanta.addElemento(fan);
                 serranita.addElemento(ser);
-                calugas.addElemento(cal);
-                oreos.addElemento(ore);
+                snickers.addElemento(cal);
+                super8.addElemento(sup);
             }
         }
     }

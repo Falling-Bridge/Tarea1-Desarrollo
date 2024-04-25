@@ -1,8 +1,8 @@
 package Tarea.clasedulces;
 
-public class Oreos extends Dulces{
+public class Super8 extends Dulces{
 
-    public Oreos(int ac) {
+    public Super8 (int ac) {
         super(ac);
     }
 

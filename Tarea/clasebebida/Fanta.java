@@ -1,7 +1,7 @@
 package Tarea.clasebebida;
 
-public class Pepsi extends Bebida {
-    public Pepsi(int ap) {
+public class Fanta extends Bebida {
+    public Fanta(int ap) {
         super(ap);
     }
 

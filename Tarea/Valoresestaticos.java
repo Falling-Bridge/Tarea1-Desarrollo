@@ -4,7 +4,7 @@ public enum Valoresestaticos {
 
     COCA(500),
     SPRITE(500),
-    PEPSI(500),
+    FANTA(500),
     SERRANITA(500),
     CALUGAS(500),
     OREOS(500);
