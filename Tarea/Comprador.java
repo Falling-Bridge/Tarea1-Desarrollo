@@ -12,7 +12,7 @@ class Comprador {
         return sonido;
     }
 
-    public Comprador(Moneda m, int cual, Expendedor exp) {
+    public Comprador(Moneda m, int cual, Expendedor exp) throws Exception {
         Producto beer = exp.comprarProducto(m, cual);
         if (beer != null) {
             sonido = beer.Consumir();

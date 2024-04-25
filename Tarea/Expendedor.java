@@ -1,6 +1,7 @@
 package Tarea;
 import Tarea.Bebidatipo.*;
 import Tarea.Dulcestipo.*;
+import Tarea.Exepciones.*;
 class Expendedor {
     private Deposito<Bebida> coca;
     private Deposito<Bebida> sprite;
@@ -11,18 +12,21 @@ class Expendedor {
     private Deposito<Moneda> monVu;
     private int price;
 
-    public Moneda getVuelto() {
+    public Moneda getVuelto() throws Exception{
         return monVu.getElemento();
     }
 
-    public Producto comprarProducto(Moneda m, int cual) {
+    public Producto comprarProducto(Moneda m, int cual) throws Exception {
         if(m == null){
             return null;
         }
 
-        if(m.getValor()<price || (cual != 1 && cual != 2 && cual != 3 && cual != 4 && cual != 5 && cual != 6)){
+        if(m.getValor()<price){
             monVu.addElemento(m);
-            return null;
+            throw new PagoInsuficienteException();
+        }
+        if(cual != 1 && cual != 2 && cual != 3 && cual != 4 && cual != 5 && cual != 6){
+            throw new ProductoInexistente();
         }
         
         for(int i = price; i<m.getValor(); i+=100){
@@ -90,7 +94,7 @@ class Expendedor {
                 }
                 return auxDulces;
             
-            default: return null;    
+            default: throw new ProductoInexistente();    
         }
     }
 

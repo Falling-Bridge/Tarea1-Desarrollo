@@ -1,5 +1,6 @@
 package Tarea;
 import java.util.ArrayList;
+import Tarea.Exepciones.*;
 
 class Deposito<T> {
 
@@ -9,9 +10,9 @@ class Deposito<T> {
         lista.add(elemento);
     }
 
-    public T getElemento() {
+    public T getElemento() throws NoHayProductoException {
         if (lista.size() == 0) {
-            return null;
+            throw new NoHayProductoException();
         } else {
             T aux = lista.get(0);
             lista.remove(0);
