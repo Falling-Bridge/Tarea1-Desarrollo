@@ -14,11 +14,11 @@ class Expendedor {
     private Deposito<Moneda> monVu;
     private int price;
 
-    public Moneda getVuelto() {
+    public Moneda getVuelto() throws Exception{
         return monVu.getElemento();
     }
 
-    public Producto comprarProducto(Moneda m, int cual) {
+    public Producto comprarProducto(Moneda m, int cual) throws Exception{
         if(m == null){
             throw new PagoIncorrectoException();
         }

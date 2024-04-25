@@ -6,11 +6,11 @@ class Deposito<T> {
 
     private ArrayList<T> lista;
 
-    public void addElemento(T elemento) {
+    public void addElemento(T elemento){
         lista.add(elemento);
     }
 
-    public T getElemento() {
+    public T getElemento() throws NoHayProductoException{
         if (lista.size() == 0) {
             throw new NoHayProductoException();
         } else {
