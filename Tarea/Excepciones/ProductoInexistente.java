@@ -1,4 +1,4 @@
-package Tarea.Exepciones;
+package Tarea.Excepciones;
 
 public class ProductoInexistente extends Exception{
     public ProductoInexistente(){

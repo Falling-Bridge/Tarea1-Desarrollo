@@ -1,7 +1,7 @@
 package Tarea;
 import Tarea.Bebidatipo.*;
 import Tarea.Dulcestipo.*;
-import Tarea.Exepciones.*;
+import Tarea.Excepciones.*;
 class Expendedor {
     private Deposito<Bebida> coca;
     private Deposito<Bebida> sprite;

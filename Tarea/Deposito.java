@@ -1,6 +1,7 @@
 package Tarea;
 import java.util.ArrayList;
-import Tarea.Exepciones.*;
+
+import Tarea.Excepciones.*;
 
 class Deposito<T> {
 

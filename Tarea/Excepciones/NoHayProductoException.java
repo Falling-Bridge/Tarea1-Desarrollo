@@ -1,4 +1,4 @@
-package Tarea.Exepciones;
+package Tarea.Excepciones;
 
 public class NoHayProductoException extends Exception{
     public NoHayProductoException(){
