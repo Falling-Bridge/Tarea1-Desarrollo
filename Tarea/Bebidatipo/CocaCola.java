@@ -1,0 +1,11 @@
+package Tarea.Bebidatipo;
+
+public class CocaCola extends Bebida {
+    public CocaCola(int ac) {
+        super(ac);
+    }
+
+    public String beber() {
+        return new String(super.Consumir() + "cocacola");
+    }
+}

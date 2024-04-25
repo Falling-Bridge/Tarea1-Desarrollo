@@ -8,14 +8,14 @@ class Comprador {
         return vuelto;
     }
 
-    public String queBebiste() {
+    public String queCompraste() {
         return sonido;
     }
 
     public Comprador(Moneda m, int cual, Expendedor exp) {
-        Bebida beer = exp.comprarBebida(m, cual);
+        Producto beer = exp.comprarProducto(m, cual);
         if (beer != null) {
-            sonido = beer.beber();
+            sonido = beer.Consumir();
 
         }
         Moneda aux = exp.getVuelto();

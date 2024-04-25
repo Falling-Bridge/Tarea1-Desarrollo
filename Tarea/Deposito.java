@@ -1,26 +1,25 @@
 package Tarea;
 import java.util.ArrayList;
 
-class Deposito {
+class Deposito<T> {
 
-    private ArrayList<Bebida> lista1;
+    private ArrayList<T> lista;
 
-    public void addBebida(Bebida vodka) {
-        lista1.add(vodka);
+    public void addElemento(T elemento) {
+        lista.add(elemento);
     }
 
-    public Bebida getBebida() {
-        if (lista1.size() == 0) {
+    public T getElemento() {
+        if (lista.size() == 0) {
             return null;
         } else {
-            Bebida aux = lista1.get(0);
-            lista1.remove(0);
+            T aux = lista.get(0);
+            lista.remove(0);
             return aux;
         }
     }
 
     public Deposito() {
-        lista1 = new ArrayList<Bebida>();
-
+        lista = new ArrayList<>();
     }
 }

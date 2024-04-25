@@ -8,9 +8,9 @@ public class Main {
 
         m = new Moneda1500();
         c = new Comprador(m,1,exp);
-        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+        System.out.println(c.queCompraste() + ", " + c.cuantoVuelto());
         m = new Moneda1500();
         c = new Comprador(m,1,exp);
-        System.out.println(c.queBebiste() + ", " + c.cuantoVuelto());
+        System.out.println(c.queCompraste() + ", " + c.cuantoVuelto());
     }
 }
