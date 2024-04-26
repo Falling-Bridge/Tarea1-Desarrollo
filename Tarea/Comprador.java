@@ -20,6 +20,7 @@ class Comprador {
         if (beer != null) {
             sonido = beer.Consumir();
         } else {
+            System.out.println(exp.getVuelto().getValor());
             throw new NoHayProductoException();
         }
         Moneda aux = exp.getVuelto();

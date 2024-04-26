@@ -4,18 +4,19 @@ import Tarea.mensajeerror.*;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        Expendedor exp = new Expendedor(1);
-        Moneda m = null;
+        int cantidad = 0;
+        Expendedor exp = new Expendedor(cantidad);
+        Moneda m = new Moneda100();
         Comprador c = null;
         Valoresestaticos v = null;
-        v = Valoresestaticos.SUPER8;
-        m = new Moneda100();
-        try{
-            c = new Comprador(m, v, exp);
-            System.out.println(c.queConsumiste() + ", " + c.cuantoVuelto());
-        }catch(NoHayProductoException | PagoIncorrectoException e){
-            System.out.println(e.getMessage());  
+        v = Valoresestaticos.COCA;
+        for (int i = 0; i <= cantidad; i++){
+            try{
+                c = new Comprador(m, v, exp);
+                System.out.println(c.queConsumiste() + "\n" + c.cuantoVuelto());
+            }catch(NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException e){
+                System.out.println(e.getMessage());  
+            }
         }
-        
     }
 }

@@ -24,11 +24,14 @@ class Expendedor {
 
         if( m.getValor() < producto.getCoste()){
             monVu.addElemento(m);
+            System.out.println(getVuelto().getValor());
             throw new PagoInsuficienteException();
         }
         
-        for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-            monVu.addElemento(new Moneda100());
+        if (m.getValor() >= producto.getCoste()) {
+            for(int i = producto.getCoste(); i<m.getValor(); i+=100){
+                monVu.addElemento(new Moneda100());
+            }
         }
 
         switch (producto) {
