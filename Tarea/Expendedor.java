@@ -5,119 +5,131 @@ import Tarea.clasebebida.*;
 import Tarea.clasedulces.*;
 
 class Expendedor {
-    private Deposito<Bebida> coca;
-    private Deposito<Bebida> sprite;
-    private Deposito<Bebida> fanta;
-    private Deposito<Dulces> serranita;
-    private Deposito<Dulces> snickers;
-    private Deposito<Dulces> super8;
-    private Deposito<Moneda> monVu;
+    private Deposito<Bebida> coca;//Depositos de Bebida sabor cocacola
+    private Deposito<Bebida> sprite;//Depositos de Bebida sabor sprite
+    private Deposito<Bebida> fanta;//Depositos de Bebida sabor fanta
+    private Deposito<Dulces> serranita;//Depositos de Dulces tipo serranita
+    private Deposito<Dulces> calugas;//Depositos de Dulces tipo snickers
+    private Deposito<Dulces> oreos;//Depositos de Dulces tipo super8
+    private Deposito<Moneda> monVu;//Depositos de Monedas para el vuelto
 
     public Moneda getVuelto() throws Exception{
-        return monVu.getElemento();
+        return monVu.getElemento();//retorna las monedas q se encuentran en el deposito de monedas
     }
-
+/**
+ * @author Pablo Villagrán-Lucas Morales
+ * @param m es la moneda con la q se paga, puede ser null, menor, mayor o igual al precio, y en los dos primeros manda una excepción
+ * @param producto es el tipo de producto se pide, viene con el precio de este y se instancia en el main
+ * @return un elemento de los depositos dependiendo de lo q se solicite, ya sea dulce o bebida
+ * @throws Exception manda la excepción de PagoIncorectoException si se usa una moneda no instanciada o de tipo null
+ */
     public Producto comprarProducto(Moneda m, Valoresestaticos producto) throws Exception{
-        if(m == null){
+        if(m == null){//si la moneda no tiene valor o no está definida manda una excepcion del tipo PagoIncorrectoException
             throw new PagoIncorrectoException();
         }
-
-        if( m.getValor() < producto.getCoste()){
-            monVu.addElemento(m);
-            throw new PagoInsuficienteException();
+        if(producto == null){//manda la excepción si se intenta comprar un elemento null o algo no definido en Valoresestaticos 
+            throw new ProductoInexistenteException();
+        }
+        else if( m.getValor() < producto.getCoste()){//si el valor de la moneda el menor al precio del producto manda un excepción del tipo
+            monVu.addElemento(m);               //PagoInsuficienteException
+            throw new PagoInsuficienteException();  
         }
         
-        for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-            monVu.addElemento(new Moneda100());
+        for(int i = producto.getCoste(); i<m.getValor(); i+=100){//agrega monedas hasta que la cantidad sea igual a la diferencia entre el 
+            monVu.addElemento(new Moneda100());                  //precio del producto y el valor de la moneda dada   
         }
         Bebida auxBebida = null;
         Dulces auxDulces = null;
 
-        switch (producto) {
-            case COCA: 
+        switch (producto) {//segun el tipo de producto q se escogio entra a los distintos swich
+            case COCA: //retorna una bebida de tipo cocacola si no manda excepción
                 if (coca.getElemento() == null){
                     for (int i = producto.getCoste(); i < m.getValor(); i += 100){
-                        monVu.getElemento();
+                        monVu.getElemento();//calculo de vuelto y obtencion de este
                     }
                     monVu.addElemento(m);
                 }
-                return coca.getElemento();
+                return coca.getElemento();//retorna el producto
 
-            case SPRITE: 
-            if (sprite.getElemento() == null){
-                for (int i = producto.getCoste(); i < m.getValor(); i += 100){
-                    monVu.getElemento();
+            case SPRITE: //retorna una bebida de tipo sprite si no manda excepción
+                if (sprite.getElemento() == null){
+                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
+                        monVu.getElemento();//calculo de vuelto y obtencion de este
+                    }
+                    monVu.addElemento(m);
                 }
-                monVu.addElemento(m);
-            }
-            return sprite.getElemento();
-            case FANTA: 
+                return sprite.getElemento();//retorna el producto
+
+            case FANTA: //retorna una bebida de tipo fanta si no manda excepción
                 auxBebida = fanta.getElemento();
                 if(auxBebida == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();
+                        monVu.getElemento();//calculo de vuelto y obtencion de este
                     }
                     monVu.addElemento(m);
                 }
-                return auxBebida;
+                return auxBebida;//retorna el producto
                 
-            case SERRANITA: 
+            case SERRANITA: //retorna un dulce de tipo serranita si no manda excepción
                 auxDulces = serranita.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();
+                        monVu.getElemento();//calculo de vuelto y obtencion de este
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;
+                return auxDulces;//retorna el producto
 
-            case CALUGAS: 
-                auxDulces = snickers.getElemento();
+            case CALUGAS: //retorna un dulce de tipo calugas si no manda excepción
+                auxDulces = calugas.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();
+                        monVu.getElemento();//calculo de vuelto y obtencion de este
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;
+                return auxDulces;//retorna el producto
             
-            case OREOS: 
-                auxDulces = super8.getElemento();
+            case OREOS: //retorna un dulce de tipo oreos si no manda excepción
+                auxDulces = oreos.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
-                        monVu.getElemento();
+                        monVu.getElemento();//calculo de vuelto y obtencion de este 
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;
+                return auxDulces;//retorna el producto
             
-            default: return null;    
+            default: return null;//no retorna nada en caso de que no se escojiera un tipo de producto
         }
     }
-
-    public Expendedor(int a) {
-        coca = new Deposito<Bebida>();
-        sprite = new Deposito<Bebida>();
-        fanta = new Deposito<Bebida>();
-        serranita = new Deposito<Dulces>();
-        snickers = new Deposito<Dulces>();
-        super8 = new Deposito<Dulces>();
-        monVu = new Deposito<Moneda>();
+/**
+ *@author Pablo Villagrán-Lucas Morales1    1
+ * @param a se entrega el parametro para ver la cantidad de elementos con los q se llenan los depositos
+ */
+    public Expendedor(int a) {//se crean los distintos tipos de depositos
+        coca = new Deposito<Bebida>();//tipo cocacola
+        sprite = new Deposito<Bebida>();//tipo sprite
+        fanta = new Deposito<Bebida>();//tipo fanta
+        serranita = new Deposito<Dulces>();//tipo serranita
+        calugas = new Deposito<Dulces>();//tipo calugas
+        oreos = new Deposito<Dulces>();//tipo oreos
+        monVu = new Deposito<Moneda>();//tipo monedas para el vuelto
 
         if (a > 0){
-            for (int i = 0; i <= a; i++) {
+            for (int i = 0; i <= a; i++) {//se crean las productos para llenar los depositos
                 Bebida coc = new CocaCola(i);
                 Bebida spi = new Sprite(i);
                 Bebida fan = new Fanta(i);
                 Dulces ser = new Serranita(i);
                 Dulces cal = new Snickers(i);
                 Dulces sup = new Super8(i);
-                coca.addElemento(coc);
+                coca.addElemento(coc);//se agregan los productos a sus respectivos depositos
                 sprite.addElemento(spi);
                 fanta.addElemento(fan);
                 serranita.addElemento(ser);
-                snickers.addElemento(cal);
-                super8.addElemento(sup);
+                calugas.addElemento(cal);
+                oreos.addElemento(sup);
             }
         }
     }

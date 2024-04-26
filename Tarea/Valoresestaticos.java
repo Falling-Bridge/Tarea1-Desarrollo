@@ -1,17 +1,19 @@
 package Tarea;
 
 public enum Valoresestaticos {
-
-    COCA(500),
-    SPRITE(500),
-    FANTA(500),
-    SERRANITA(500),
-    CALUGAS(500),
-    OREOS(500);
+/**
+ * se definen los distintos pruductos y su precio, y en el main se selecciona el producto q se quiere y en el costructor se le asosia su precio
+ */
+    COCA(100),
+    SPRITE(100),
+    FANTA(100),
+    SERRANITA(100),
+    CALUGAS(100),
+    OREOS(100);
 
     private final int coste;
 
-    public int getCoste() {
+    public int getCoste() {//getter que retorna coste, q se define en el constructor
         return coste;
     }
 
