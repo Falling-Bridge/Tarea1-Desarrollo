@@ -6,8 +6,8 @@ public enum Valoresestaticos {
     SPRITE(500),
     FANTA(500),
     SERRANITA(500),
-    CALUGAS(500),
-    OREOS(500);
+    SNICKERS(500),
+    SUPER8(500);
 
     private final int coste;
 

@@ -6,6 +6,6 @@ public class Fanta extends Bebida {
     }
 
     public String Consumir() {
-        return (super.Consumir() + "pepsi");
+        return (super.Consumir() + "fanta");
     }
 }

@@ -6,6 +6,6 @@ public class Snickers extends Dulces{
     }
 
     public String Consumir() {
-        return (super.Consumir() + "caluga");
+        return (super.Consumir() + "snicker");
     }
 }

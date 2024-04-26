@@ -7,6 +7,6 @@ public class Super8 extends Dulces{
     }
 
     public String Consumir() {
-        return (super.Consumir() + "oreo");
+        return (super.Consumir() + "super8");
     }
 }

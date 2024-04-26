@@ -30,8 +30,6 @@ class Expendedor {
         for(int i = producto.getCoste(); i<m.getValor(); i+=100){
             monVu.addElemento(new Moneda100());
         }
-        Bebida auxBebida = null;
-        Dulces auxDulces = null;
 
         switch (producto) {
             case COCA: 
@@ -44,52 +42,48 @@ class Expendedor {
                 return coca.getElemento();
 
             case SPRITE: 
-            if (sprite.getElemento() == null){
-                for (int i = producto.getCoste(); i < m.getValor(); i += 100){
-                    monVu.getElemento();
-                }
-                monVu.addElemento(m);
-            }
-            return sprite.getElemento();
-            case FANTA: 
-                auxBebida = fanta.getElemento();
-                if(auxBebida == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
+                if (sprite.getElemento() == null){
+                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
-                return auxBebida;
+                return sprite.getElemento();
+            case FANTA: 
+                if (sprite.getElemento() == null){
+                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
+                        monVu.getElemento();
+                    }
+                    monVu.addElemento(m);
+                }
+                return fanta.getElemento();
                 
             case SERRANITA: 
-                auxDulces = serranita.getElemento();
-                if(auxDulces == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
+                if (sprite.getElemento() == null){
+                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;
+                return serranita.getElemento();
 
-            case CALUGAS: 
-                auxDulces = snickers.getElemento();
-                if(auxDulces == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
+            case SNICKERS: 
+                if (sprite.getElemento() == null){
+                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;
+                return snickers.getElemento();
             
-            case OREOS: 
-                auxDulces = super8.getElemento();
-                if(auxDulces == null){
-                    for(int i = producto.getCoste(); i<m.getValor(); i+=100){
+            case SUPER8: 
+                if (sprite.getElemento() == null){
+                    for (int i = producto.getCoste(); i < m.getValor(); i += 100){
                         monVu.getElemento();
                     }
                     monVu.addElemento(m);
                 }
-                return auxDulces;
+                return super8.getElemento();
             
             default: return null;    
         }
