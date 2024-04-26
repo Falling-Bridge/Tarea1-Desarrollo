@@ -11,6 +11,6 @@ public class Fanta extends Bebida {
     }
 
     public String Consumir() {//personaliza el metodo consumir de la clase bebida
-        return (super.Consumir() + "pepsi");
+        return (super.Consumir() + "fanta");
     }
 }

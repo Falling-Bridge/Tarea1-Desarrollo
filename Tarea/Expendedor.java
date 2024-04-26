@@ -9,8 +9,8 @@ class Expendedor {
     private Deposito<Bebida> sprite;//Depositos de Bebida sabor sprite
     private Deposito<Bebida> fanta;//Depositos de Bebida sabor fanta
     private Deposito<Dulces> serranita;//Depositos de Dulces tipo serranita
-    private Deposito<Dulces> calugas;//Depositos de Dulces tipo snickers
-    private Deposito<Dulces> oreos;//Depositos de Dulces tipo super8
+    private Deposito<Dulces> snickers;//Depositos de Dulces tipo snickers
+    private Deposito<Dulces> super8;//Depositos de Dulces tipo super8
     private Deposito<Moneda> monVu;//Depositos de Monedas para el vuelto
 
     public Moneda getVuelto() throws Exception{
@@ -41,7 +41,7 @@ class Expendedor {
         Bebida auxBebida = null;
         Dulces auxDulces = null;
 
-        switch (producto) {//segun el tipo de producto q se escogio entra a los distintos swich
+        switch (producto) {//segun el tipo de producto q se escogio entra a los distintos switch
             case COCA: //retorna una bebida de tipo cocacola si no manda excepción
                 if (coca.getElemento() == null){
                     for (int i = producto.getCoste(); i < m.getValor(); i += 100){
@@ -80,8 +80,8 @@ class Expendedor {
                 }
                 return auxDulces;//retorna el producto
 
-            case CALUGAS: //retorna un dulce de tipo calugas si no manda excepción
-                auxDulces = calugas.getElemento();
+            case SUPER8: //retorna un dulce de tipo calugas si no manda excepción
+                auxDulces = super8.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();//calculo de vuelto y obtencion de este
@@ -90,8 +90,8 @@ class Expendedor {
                 }
                 return auxDulces;//retorna el producto
             
-            case OREOS: //retorna un dulce de tipo oreos si no manda excepción
-                auxDulces = oreos.getElemento();
+            case SNICKERS: //retorna un dulce de tipo oreos si no manda excepción
+                auxDulces = snickers.getElemento();
                 if(auxDulces == null){
                     for(int i = producto.getCoste(); i<m.getValor(); i+=100){
                         monVu.getElemento();//calculo de vuelto y obtencion de este 
@@ -112,8 +112,8 @@ class Expendedor {
         sprite = new Deposito<Bebida>();//tipo sprite
         fanta = new Deposito<Bebida>();//tipo fanta
         serranita = new Deposito<Dulces>();//tipo serranita
-        calugas = new Deposito<Dulces>();//tipo calugas
-        oreos = new Deposito<Dulces>();//tipo oreos
+        super8 = new Deposito<Dulces>();//tipo calugas
+        snickers = new Deposito<Dulces>();//tipo oreos
         monVu = new Deposito<Moneda>();//tipo monedas para el vuelto
 
         if (a > 0){
@@ -122,14 +122,14 @@ class Expendedor {
                 Bebida spi = new Sprite(i);
                 Bebida fan = new Fanta(i);
                 Dulces ser = new Serranita(i);
-                Dulces cal = new Snickers(i);
+                Dulces sni = new Snickers(i);
                 Dulces sup = new Super8(i);
                 coca.addElemento(coc);//se agregan los productos a sus respectivos depositos
                 sprite.addElemento(spi);
                 fanta.addElemento(fan);
                 serranita.addElemento(ser);
-                calugas.addElemento(cal);
-                oreos.addElemento(sup);
+                super8.addElemento(sni);
+                snickers.addElemento(sup);
             }
         }
     }

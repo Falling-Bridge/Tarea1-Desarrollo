@@ -11,6 +11,6 @@ public class Super8 extends Dulces{
     }
 
     public String Consumir() {//personaliza el metodo consumir de la clase dulce
-        return (super.Consumir() + "oreo");
+        return (super.Consumir() + "super8");
     }
 }

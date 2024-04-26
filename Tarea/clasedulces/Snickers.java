@@ -11,6 +11,6 @@ public class Snickers extends Dulces{
     }
 
     public String Consumir() {//personaliza el metodo consumir de la clase dulce
-        return (super.Consumir() + "caluga");
+        return (super.Consumir() + "snicker");
     }
 }
